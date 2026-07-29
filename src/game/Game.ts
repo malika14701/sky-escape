@@ -73,7 +73,7 @@ export class Game {
   private moveRight(){const l=this.player.targetLane;if(l<Lane.Right){this.player.targetLane=l+1 as Lane;this.player.rollAngle=0.35;this.data.dodgesCount++;this.camera.targetRoll=0.04;this.spawnDodgeEffect()}}
 
   private spawnDodgeEffect(){
-    for(let i=0;i=0,i<3;i++){this.particles.push({x:this.player.x+(Math.random()-0.5)*20,y:this.player.y+PLAYER_HEIGHT*0.3,vx:(Math.random()-0.5)*30,vy:-20-Math.random()*40,life:0.3,maxLife:0.3,size:2+Math.random()*3,color:'rgba(200,220,255,0.6)',type:'spark',active:true})}
+    for(let i=0;i<3;i++){this.particles.push({x:this.player.x+(Math.random()-0.5)*20,y:this.player.y+PLAYER_HEIGHT*0.3,vx:(Math.random()-0.5)*30,vy:-20-Math.random()*40,life:0.3,maxLife:0.3,size:2+Math.random()*3,color:'rgba(200,220,255,0.6)',type:'spark',active:true})}
   }
 
   private emitState(){this.onStateChange?.({...this.data})}
