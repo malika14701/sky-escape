@@ -1,0 +1,11 @@
+export enum Lane { Left, Center, Right }
+export enum ObstacleType { Bomb = 'bomb', Missile = 'missile', Laser = 'laser', Lightning = 'lightning', Turbulence = 'turbulence', Mine = 'mine', Drone = 'drone' }
+export enum PowerUpType { Shield = 'shield', ExtraLife = 'extraLife', SlowMotion = 'slowMotion', Magnet = 'magnet', DoublePoints = 'doublePoints', SpeedBoost = 'speedBoost' }
+export enum WorldType { Sky = 'sky', Mountains = 'mountains', Ocean = 'ocean', Desert = 'desert', NightCity = 'nightCity', ThunderStorm = 'thunderStorm', Space = 'space' }
+export enum GameStatus { Menu = 'menu', Playing = 'playing', Paused = 'paused', GameOver = 'gameOver' }
+export interface GameData { status: GameStatus; score: number; highScore: number; distance: number; speed: number; baseSpeed: number; lives: number; maxLives: number; difficulty: number; worldIndex: number; worldTransition: number; shakeIntensity: number; shakeTimer: number; comboCount: number; dodgesCount: number; timePlayed: number; multiplier: number; }
+export interface PlayerState { lane: Lane; targetLane: Lane; x: number; y: number; lives: number; shield: boolean; invulnerable: boolean; invulnerableTimer: number; shieldTimer: number; slowMotion: boolean; slowMotionTimer: number; magnet: boolean; magnetTimer: number; doublePoints: boolean; doublePointsTimer: number; speedBoost: boolean; speedBoostTimer: number; rollAngle: number; engineFlicker: number; hitFlash: number; }
+export interface ObstacleData { type: ObstacleType; lane: Lane; x: number; y: number; w: number; h: number; speed: number; active: boolean; warningTimer: number; warningDuration: number; hit: boolean; color: string; droneDirection?: number; droneSpeed?: number; }
+export interface PowerUpData { type: PowerUpType; lane: Lane; x: number; y: number; w: number; h: number; speed: number; active: boolean; collected: boolean; }
+export interface ParticleData { x: number; y: number; vx: number; vy: number; life: number; maxLife: number; size: number; color: string; type: 'spark' | 'smoke' | 'explosion' | 'trail' | 'collect'; active: boolean; }
+export interface WorldConfig { type: WorldType; skyTop: string; skyBottom: string; cloudColor: string; cloudColor2: string; groundColor: string; fogColor: string; sunColor: string; accentColor: string; lightColor: string; }
